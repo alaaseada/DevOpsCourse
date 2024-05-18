@@ -26,4 +26,6 @@ Actions done on branches
 =========================
 	$ git merge
 	$ git rebase
-	$ git cherry-pick		-> Is the easiest option where commits of the branch is added to the main branch
+	$ git cherry-pick <commitID>
+		- Is the easiest option where commits of the branch is added to the main branch
+		- Suitable for few commits 
