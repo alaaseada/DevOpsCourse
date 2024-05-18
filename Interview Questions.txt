@@ -160,4 +160,6 @@ OR)
 	- FORK is used to copy the repository in order to create a distributed versions of it 
 		- NOTE: if the original repo is updated, the forked copy will not be changed unless we do it manually
 
-
+31. What is the difference between Merge, rebase and cherry-pick?
+	- Cherry-pick is the easiest option it is done manually for each commit, which makes it suitable only if we have few # of commits
+		
