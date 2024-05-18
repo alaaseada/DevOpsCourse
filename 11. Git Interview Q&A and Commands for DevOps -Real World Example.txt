@@ -20,3 +20,10 @@ Branches
 	$ git branch -m <old><newname>	-> Rename a branch
 	$ git branch -d <name>		-> Delete a branch
 	$ git checkout <name>		-> Switch to a branch
+	$ git log <branch-name>		-> Show the commit history of this branch
+
+Actions done on branches
+=========================
+	$ git merge
+	$ git rebase
+	$ git cherry-pick		-> Is the easiest option where commits of the branch is added to the main branch
