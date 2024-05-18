@@ -162,5 +162,5 @@ OR)
 
 31. What is the difference between Merge, rebase and cherry-pick?
 	- Cherry-pick is the easiest option it is done manually for each commit, which makes it suitable only if we have few number of commits
-	- Rebase is 	
-	- Merge is 		
+	- Rebase will add the changes to the master branch in a linear fashion, so the logs will reflect the timeline of changes 	
+	- Merge will add the changes on the top of the master branch commits. So it might be hard to get the real timeline of changes  		
