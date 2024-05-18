@@ -1,0 +1,11 @@
+ Initialize a new Repo
+=====================
+	$ mkdir <name_of_repo>
+	- make changes
+	$ git init 
+	$ git status
+	$ git add <files | .>
+	$ git checkout <file>		-> Removes file from git tracking 
+	$ git remote -v			-> Get the remote repository
+	$ git remote add <name><url>	-> Add a remote repository. Will need it if this repo is not a cloned one
+	$ git push <local><remote>	-> Push the local repo to the remote repo

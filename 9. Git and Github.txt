@@ -1,0 +1,60 @@
+What is the Version Control System?
+===================================
+ - Version Control System is the system that allows for:
+	- Sharing code and merging different work from different developers together 
+	- Keeps versions of the code to allow for rollbacks
+
+Most popular types of VCS
+==========================
+	- CVS
+	- SVN
+	- GIT
+	
+	Centralized vs. Distributed VCs
+	===============================
+	Centralized 	-> like CVS and SVN, means that the source code is stored in a central server (Single Point of Failure) that is maintained 
+			   by a single entity. Developers checkout the code, change it, and then commit it to this server
+
+	Distributed	-> like GIT means that developers can create multiple copies of the central 
+			   original code repo with the entire history on their local machines so they can modify the code, commit it to the local 
+			   repo, then push the changes to the central server when possible
+
+			   They are better because:
+				- Avoid single point of failure
+				- Great Flexibility
+				- Faster development
+				- Each developer is considered a backup (no need for central backup)
+				- No permissions hustle on the server
+
+Git vs. Github
+===============
+	- Git is a free, open source distributed version control system that can be installed in a server and let developers 
+	  take snapshots of the original code, creating a version history. Then, they can share this snapshots and commits with other 
+	  developers.The problem is the distributed nature of Git makes it difficult for developers to configure.
+
+	- Github is a pay-for-use SaaS that allows companies to create a single, shared repository in their cloud, and that central 
+	  GitHub repository becomes the source of truth for everyone on the team. Moreover, it has more additional features that Git
+	  doesn't have:
+		- User Management or user Authentication and authorization tools (token-based and MFA) which controls what a user can do 
+		  in the git repo
+		- Pages for free web hosting
+		- Web-based Interface
+		- Actions to help in CI/CD pipeline 
+
+Most important Git commands
+============================
+	git init	-> Initialize a repo. It create a .git folder that keeps tracking of all changes in this repo with:
+				- Objects, Refs	-> everything created in a repo is an object
+				- hooks		-> prevent accidential commits of sensitive info
+				- config	-> configures the Git with credentials and help with changing settings
+				- HEAD		-> a pointer to the current commit 
+	
+	git status		-> Shows the status of objects in the repo
+	git add			-> Add files in the staging zone
+	git diff		-> Shows exactly what changes took place since the last add		
+	git commit -m "msg"	-> Commit these files to the local repo
+	git push		-> Push these files to the remote, central repo 
+	git log			-> Shows the different commits done to this repository
+	git reset --hard <ID>	-> Revert to a specific commit version
+
+

@@ -1,0 +1,109 @@
+What is Operating System?
+=========================
+ - OS is a medium of communication between SW and HW
+	Ex. the layer between SW like Office, Jenkins, etc and RAM, I/O or HD
+
+Why Linux is very popular?
+==========================
+	- An Open Source SW
+	- Very secure
+	- Varios distributions that fit any user
+	- Very fast because it is very efficient in managing resources  
+
+Linux OS Structure
+====================
+3. user programs 4. system software 5. compilers
+2. System Libraries
+1. Kernel
+
+
+Where:
+======
+	- Kernel 
+		- Is the heart of Linux OS because it is responsible for establishing the communication between SW and HW
+		- Has 4 primary responsibilities:
+			1. Device Management 
+			2. Memory Management
+			3. Process Management
+			4. Handling System Calls
+	- System Libraries
+		- Are responsible for performing a task
+		- Ex. libc 
+	- Compilers
+		- That are used for specific programming languages to be compiled
+	- User programs, system SW 
+		- SW that the user needs or the system needs
+
+
+Shell Scripting Fundamentals
+============================
+Shell is a computer program called the Command Line Interpreter that lets Linux users control their operating system via commands 
+
+
+Most commonly used commands
+===========================
+	- ls		List file or folders
+	- mkdir		Create a new dir
+	- pwd		Show where we stand
+	- whoami	Show who is the current user
+	- cd 		Change the current dir
+	- cat		Show file content
+	- vi		Create a new file and write in it
+	- rm		Remove file or dir (-r)
+	- nproc		Watch # of CPUs used
+	- free -g	Watch Memory
+	- df -h		Disk free
+	- top		Watch all disk, memory, and cpu in one place
+	- man		Show the manual page of a command
+
+What is the Scripting role in automation?
+=========================================
+Scripting allows for doing the repeated and tidious tasks automatically without intervention which will make any process faster
+
+	Ex
+	===
+ 	- Create 20 files named file_num.tx 
+	  Manually: $ touch file_1.txt .......
+	  Script: $ touch file_{1..1000000}.txt
+
+How to create a shell script file?
+==================================
+	$ touch script.sh
+	$ vi script.sh
+	
+	- First line in the script must be shebang followed by the executable of the shell defining which program is gonna handle the following commands
+
+	  #!/bin/[sh|bash|dash|ksh]		There are syntax differences between these executables, the most commonly used one is bash
+						sh was linked previously to bash but be careful that in ubuntu lately it is linked to dash
+	- Write any commands you want to execute in the script 
+		mkdir ~/automated
+		cd ~/automated
+		touch script_{1..3}.sh
+
+	- Save and exit	
+	
+	Notes
+	====
+	- To execute the script, you have to have an execution permission 
+		$ chmod 700 script.sh
+	- To run the executable
+		$ ./script.sh or 
+		$ sh script.sh
+
+
+DevOps tasks
+=============
+	- Infrastructure maintenance
+	- Code maintenance (git)
+	- Configuration management 
+
+All of these tasks are done using shell
+
+Example
+========
+- John is a DevOps Engineer who is working in Amazon
+- He has 10000 VMs to maintain
+- He writes a shell script that to be executed in a specific schedule to check the health of the nodes and send the result to him via mail
+- The result for example came with machine 9999 is out of memory
+
+	

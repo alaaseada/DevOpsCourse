@@ -1,0 +1,52 @@
+What is a Server?
+================
+A Server is a machine that has powerful resources and can provide services to users like File server, Web Server, Database Server, etc.
+
+What is Virtualization?
+=======================
+Is a technology that allows using the host's resources efficiently by sharing it with other guest
+
+	How it works?
+	=============
+	It depends on a Hypervisor SW that allow creating VMs that are logically separated by sharing Physical resources of the Host with the Guest machines 
+	
+	Types
+	=====
+		- Type 1: Where the hypervisor runs as a lightweight operating system directly on the HW (Bare Metal) layer of the Host machine
+			- Layer 1 - Physical Resources
+	 		- Layer 2 - Hypervisor Software 	
+	 		- Layer 3 - Guest OS
+	 		- Layer 4 - Applications	
+		- Type 2: Where the hypervisor runs as a software layer on an operating system
+	 		- Layer 1 - Physical Resources
+	 		- Layer 2 - Host OS
+	 		- Layer 3 - Hypervisor Software 	
+	 		- Layer 4 - Guest OS
+	 		- Layer 5 - Applications
+
+		Note:
+		=====
+		- Type 1 is a bit more complicated in installation ana maintenance that type 2 but it saves alot of resources  
+
+	
+	Why it is part of DevOps?
+	=========================
+	Because it allows for efficient utilization of resources through automation
+
+	Popular Hypervisors
+	===================
+	- VMWare
+	- HyperV
+
+
+Cloud and virtualization
+========================
+Many technology enterprises like AMAZON, GOOGLE, MICROSOFT and IBM build their own computing insfrastructure (Data Centers) with thousands or millions of physical servers, 
+which are then used as host machines for VMs that are rented by customer over the internet (IaaS)
+
+Most popular Cloud providers
+============================
+	- Amazon AWS
+	- Google Cloud 
+	- Microsoft Azure
+	- Redhat OpenStack 

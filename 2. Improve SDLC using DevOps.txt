@@ -1,0 +1,40 @@
+Software Development Life Cycle (SDLC)
+=======================================
+- SDLC is a cycle of processes that aims for delivering a high quality product
+- The main SDLC processes are:
+	- Design
+	- Develop
+	- Test
+
+
+Any piece of SW is developed as follows:
+==========================================
+
+				1. Planning
+		6. Deploying			2. Defining
+			
+		5. Testing			3. Designing
+				
+				4.Building
+
+Where in:
+=========
+	Part 1 - which might be out of the interest of a DevOps Engineer
+	================================================================
+	- Planning	-> Product owner/ Business Analyst gather requirements from Customers
+	- Defining	-> Clearly state the requirments in form of Document that is called "Software Requirement Specification Document"
+	- Designing
+			-> High Level Design 
+				- Done by an SW Architect/Team Leader/Resource Manager
+				- State the high level system requirements like Availability, Scalability, type of Database to be used, n replicas of my db, etc.
+			-> Low Level Design
+				- Done by the Senior member of the Development Team
+				- State the programming language, modules, functions, libraries, procedures, etc.
+
+	Part 2 - Which is the core of DevOps and where the automation can be applied
+	============================================================================
+	- Building (Developing)	-> Where Developers develope the SW, writting the code and documents and push them to the central source code repository
+	- Testing		-> The developed code is taken and deployed to a server where Quality Ensurance Engineers test it
+	- Deploying		-> Promote the product into the Production Environment to be available for customers
+
+So DevOps Engineer is the one who takes the responsibility to fasten the 2nd part of the SDLC by writting scripts that automate its processes and therefore leads to more efficient and quick product delivery

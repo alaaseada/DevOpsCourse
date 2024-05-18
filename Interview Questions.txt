@@ -1,0 +1,163 @@
+1. What is DevOps?
+	It is a philosophy/culture that aims for accelerating the SW delivery process via automation while maintaining high quality + testing and monitoring
+
+2. Why to use Linux?
+	Because it is:
+	- Open source with amazing community support
+	- Very very secure unlike other Os
+	- Has various distributions that fit different users' tastes
+	- Very efficient in handling resources which makes it fast
+
+3. What is the Kernel in Linux?
+	Kernel is the heart of the Linux OS because it is responsible for:
+	- Device Managment
+	- Memory Management
+	- Process Management
+	- System Calls Handling
+
+4. What will be the output of date | echo "Today is " and why?
+	Will be Today is. Because "date" is a system default command that sends the output to the stdin channel no stdout, thus the pipeline 
+	will not get the output because it reads output from stdout channel.
+	
+	My Answer: Because echo does not read from stdin
+
+5. What are the most commonly used shell commands in linux?
+	- ls, mkdir, touch, cat, pwd, whoami, mv, rm, cp, curl, wget, grep, awk, find, df, free
+
+6. Write a simple shell script to list all processes running
+	ps -ef | awk '{print $2}'
+
+7. Write a script to get only ERRORs from a remote log?
+	curl <file_url>  | grep ERROR
+
+8. How to debug a shell script?
+	Use "set -x"	
+
+9. What is crontab in Linux? Provide an example of its use cases
+	Crontab is a command that allows scheduling tasks to automatically run in certain times 
+	
+10. How o open a read-only file?
+	use "cat" command or vim -r
+
+11. what is the difference between soft and hard links?
+	hard links are copies of the original file. If the original file is deleted, the hard link files will keep working
+	Soft links are aliases or shortcuts of the original files. If the original file deleted, the soft link will be inaccessible
+
+12. what is the difference between BREAK and CONTINUE?
+	BREAK, breaks the execution and exit
+	CONTINUE, skip this execution and go to the next iteration
+
+13. What are the different types of loops?
+14. What are the disadvantages of shell scripting?
+
+15. Is BASH is dynamically of statically typed and why?
+	bash is a dynamically typed language, which means a variable can hold any value because we don't declare it a type at creation
+
+16. How to sort names in a file?
+	use "sort" command
+
+17. How would you manage logs of a system that generates huge amount of logs every day?
+	We can use the log rotation mechanism offered by "logrotate" command, which zip the logs after a configurable period of time
+	and delete them after another configurable time
+
+18. Why to go cloud?
+	- Pay-as-you-go
+	- No infrastructue management overhead
+	- Go global in minutes
+	- High scalability and availability
+
+19. What are the benefits of version control systems (VCS)?
+	1. Sharing code and merging different work from different developers 
+	2. Versioning that allows for rollbacks and keeping various versions of SW
+
+20. What are popular types of VCS and what are the differences between them?
+	- CVS
+	- SVN
+	- GIT
+	
+	Centralized vs. Distributed VCs
+	===============================
+	Centralized 	-> like CVS and SVN, means that the source code is stored in a central server (Single Point of Failure) that is maintained 
+			   by a single entity. Developers checkout the code, change it, and then commit it to this server
+
+	Distributed	-> like GIT means that developers can create multiple copies of the central 
+			   original code repo with the entire history on their local machines so they can modify the code, commit it to the local 
+			   repo, then push the changes to the central server when possible
+
+			   They are better because:
+				- Avoid single point of failure
+				- Great Flexibility
+				- Faster development
+				- Each developer is considered a backup (no need for central backup)
+				- No permissions hustle on the server
+21. What is Fork?
+	- A fork is a copy of the entire original central repo "source code" to your account
+
+22. What is the difference between Git and Github?
+	- Git is a free, open source distributed version control system that can be installed in a server and let developers 
+	  take snapshots of the original code, creating a version history. Then, they can share this snapshots and commits with other 
+	  developers.The problem is the distributed nature of Git makes it difficult for developers to configure.
+
+	- Github is a pay-for-use SaaS that allows companies to create a single, shared repository in their cloud, and that central 
+	  GitHub repository becomes the source of truth for everyone on the team. Moreover, it has more additional features that Git
+	  doesn't have:
+		- User Management or user Authentication and authorization tools (token-based and MFA) which controls what a user can do 
+		  in the git repo
+		- Pages for free web hosting
+		- Web-based Interface
+		- Actions to help in CI/CD pipeline 
+
+23. What is Feature branch?
+		- Is a way to separate work on a new feature from production (main)
+		- Scinaro, if a company has already delivered a product to cutomers and it now wanna add a new feature, they have to create a new
+	  	  branch from the main/master branch -> add the new feature and test it well -> once confident merge it with the main branch, then 
+	  	  delete it.
+
+24. What is Release branch?
+		- It is a branch we create once we need to deliver the product to the customer
+		
+		Q) Why not deliver from the main branch?
+		   Because the main branch is open for active development. It might encounter a change while we are testing it. Thus, it is better
+		   to create a release branch to keep it separated from changes in the master/main branch
+
+25. What is HotFix branch?
+		- Is a branch that is created to quickly fix an issue that is raised in the product delivered to customers
+
+26. What is the branch that has to be always updated?
+	- All changes done to any of the feature, release, or hotfix branches must be reflected to the master/main branch
+
+27. How to initialize a Git repo and what happened after it?
+	- Use "git init" which creates a folder called ".git" that contains hooks, objects, HEAD, refs
+
+28. What is the normal workflow in a git repo?
+	- Create a local repo "git init"
+	- Do the work needed
+	- Add the files to the repo tracking "git add"
+	- Check the status of your tracked files "git status"
+	- If there are any changes, just check them using "git diff"
+	- Commit the changes to the local repo and add a message to it "git commit -m"
+	- Check the remote repo "git remote -v"
+	- If there is one 
+		- Push the changes to it "git push remote local"
+	  Else
+		- Add the remote repo refernece "git remote add <name><url>
+		- Then push the changes "git push <remote><local>"
+
+29. How to get code from an organization's repo?
+	- By cloning the repo. 
+		- Go to the GUI
+		- Get the Repo URL and use "git clone https://github.com/iam-veeramalla/shell-scripting-projects.git"
+		- Provide the username and the password of your git
+OR)
+	- Use SSH
+		- Create a new key-pair for your working machine via ssh-keygen
+		- Copy the public key
+		- Create a new SSH in Github & paste the copied SSH key
+		- git clone git@github.com:iam-veeramalla/shell-scripting-projects.git
+
+30. What is the difference between CLONE and FORK?
+	- CLONE is used to download the code in a repository
+	- FORK is used to copy the repository in order to create a distributed versions of it 
+		- NOTE: if the original repo is updated, the forked copy will not be changed unless we do it manually
+
+

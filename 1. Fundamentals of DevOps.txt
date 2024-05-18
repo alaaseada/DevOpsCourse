@@ -1,0 +1,47 @@
+Software Development Frameworks
+===============================
+In Software development there are 3 main framework that govern the process of Development and Delivery of SW
+		
+	- WaterFall
+	===========
+		Where the Software is analyzed -> ----------------Code--------------- -> Test -> Deploy 
+		It is 
+			- Sequential
+			- Less favorable
+			- More errors can be raised at the last stage which make it hard to be fixed rapidly
+	- Agile
+	=========
+		Where the Software is Analyzed -> (Design -> Code -> Test) iteratively -> Deploy
+		Allows for 
+			- Less errorous code
+			- Collaborative work
+			- Faster deployments than Waterfall because of less errors
+	- DevOps (CI/CD)
+	================
+		Is a philosophy (Culture) Where a team of operations and development takes the responsibility of the whole SW lifecycle to deliver 
+		a SW in the most effecient and fast way through:
+			- Automation
+			- Maintaining Quality
+			- Monitoring
+			- Testing
+		
+		The iterative processes ""Design - Build - Test - Deploy"" are done automatically and include Deployments that can be daily or even hourly 
+		DevOps allows for:
+ 			- More releases
+			- Uses the Agile framework
+			- Faster delivery
+
+Why DevOps?
+===========
+- Before DevOps Software Development was a real pain specially when a large team is involved in the process.
+- Developers had to manually move their code into a central repository to be built
+- System Admin + Server Admins were needed to create and configure a server and its services to deploy the SW 
+- Now DevOps shrink all this long process by leveraging the automation, IaaC, monitoring and testing 
+
+
+Day to Day Tasks
+=================
+- To be a DevOps Engineer, start from where you are. Like if you are already a system administrator, be a DevOps system Admin, or Developer if you are a developer.
+
+
+

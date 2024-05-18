@@ -1,0 +1,37 @@
+ A Real World Scenario
+======================
+	- In an SW company that has an organization on github with dozen of repositories, we need to get a list of users 	
+	  who have access rights to one of the repos in order to revoke these permissions, elevate them or just for monitoring.
+	
+	- As a DevOps Engineer who is meant to automate tidious or regular tasks, we can write a Shell script to get this information.
+	  However, this shell script will need a Github Integration
+
+ - Interacting with applications (Ex.github, kubernetes, Jenkins, etc) can be done via:
+	- API	-> like Gitbub API which is easier than CLI and can be used with many programming languages like shell, python, java, etc.
+	- CLI	-> like kubectl for kubernetes and github CLI
+
+ What is API?
+================
+ - Application Programming Interface is the thing that, if the application exposes it, allows us to talk to an application via code 
+   not via a User Interface (UI). 
+
+ - Modules are used to allow this interaction with the API via HTTP protocol. 
+   Ex:
+	- CURL 		-> in Shell
+	- Requests	-> in Python
+	- Boto 3	-> in Python for AWS
+
+ - Notes
+ =========
+	- DevOps Engineers are not meant to create the API instead just they use it
+	- Every API must have its Documentation available to allow DevOps Engineer or any person who is intented to use it to know how.
+
+
+	Steps
+	=====
+		- Clone the Repo from <Repo URL>
+		- export username="username"
+		- Create an accesskey on github "profile -> settings -> Developer settings -> Access keys -> Generate classic access key"
+		- export token="TOKEN"
+		- chmod 700 list-users.sh
+		- ./list-users.sh <ORGANIZATION NAME> <REPO NAME>

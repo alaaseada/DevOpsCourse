@@ -1,0 +1,21 @@
+Branching strategy
+==================
+	1. Feature branch
+		- Is a way to separate work on a new feature from production (main)
+		- Scinaro, if a company has already delivered a product to cutomers and it now wanna add a new feature, they have to create a new
+	  	  branch from the main/master branch -> add the new feature and test it well -> once confident merge it with the main branch, then 
+	  	  delete it.
+	2. Release branch
+		- It is a branch we create once we need to deliver the product to the customer
+		
+		Q) Why not deliver from the main branch?
+		   Because the main branch is open for active development. It might encounter a change while we are testing it. Thus, it is better
+		   to create a release branch to keep it separated from changes in the master/main branch
+	3. HotFix branch
+		- Is a branch that is created to quickly fix an issue that is raised in the product delivered to customers
+
+	Note
+	=====
+	- All changes done to any of these branches must be reflected to the master/main branch because it has to be always up-to-date
+
+

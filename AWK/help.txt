@@ -1,0 +1,36 @@
+Syntax
+=======
+awk options 'selection _criteria { action }' input-file > output-file
+
+
+1. Default behavior with neither options no selection criteria it prints the content
+		$ awk '{print}' employees.txt
+2. Print the lines which match the given pattern
+		$ awk ' /manager/ {print}' employees.txt
+3. Splitting a Line Into Fields
+		$ awk '{print $1,$4}' employees.txt
+
+		Built-in variables
+		===================
+		 - $n is the built-in variables for fields and 0 represents the whole line
+		 - NR	-> Number of records
+		 - NF	-> Number of Fields
+		 - FS	-> Field Separator
+		 - RS	-> Record Separator
+		 - OFS	-> Output Field Separator
+		 - ORS	-> Output Record Separator
+
+		$ awk '{ print NR, $0}' employees.txt			-> Prints the line number first
+		$ awk '{ print $1, $NF}' employees.txt			-> Prints the first and the last field
+		$ awk 'NR==3, NR==6 {print NR, $0}' employees.txt	-> Prints lines from 3 to 6
+		$ awk '{print NR "- " $0}' employees.txt		-> Use variable separtor other than the space
+		$ awk 'NF <=0 {print NF}' geeksForgeeks.txt		-> Print the empty lines
+		$ awk 'NF > 0  {print NR, $0}'  geeksForgeeks.txt	-> Print the non-empty lines
+		$ awk '{if (length($0) > max) max= length($0) } END {print max}' employees.txt	-> Get the length of the longest line in the file
+		$ awk 'END {print NR}' employees.txt			-> Prints the number of lines in a file
+		$ awk '{print length($0)}' geeksForgeeks.txt		-> Prints the length of each line
+		$ awk '{ if($3 == "B6") print $0;}' geeksforgeeks.txt	-> Check if a column has a value
+		$ awk 'BEGIN { for (i=2;i<10;i++) print "Square of ", i, "= ",i*i }' -> Execute a for loop
+
+
+		

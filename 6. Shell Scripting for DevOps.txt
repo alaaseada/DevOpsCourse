@@ -1,0 +1,71 @@
+To switch to the root user 
+===========================
+sudo su -
+
+Best practices is shell scripting
+=================================
+- Give the script a descriptive name 
+- Write Meta Data in the beginning of the file including
+	- Author
+	- Date
+	- Description
+	- Version
+- Use descriptive echo statement before any command with an output
+OR)
+- Use "set -xeo pipefail" command where 
+	set -x		-> Activate the debug mode
+	set -e		-> Exit the script at error
+	set -o pipefail	-> Exit the script if one of the pipeline commands raises an error
+	
+	Note -> Better to write them as separate commands for more flexibility
+
+Important Syntax and commands
+=============================
+	|		To pass output of one command to another 
+	grep		Search for a string in file. It will return the whole line that contains the occurance
+	cut, awk	Filters and processing strings 
+	curl, wget	Open remote files for read and download
+	find		Search for file in the file system 
+
+Logging
+=======
+- DevOps Engineers should always check the log files for monitoring 
+- In large companies log files are stored in a central dedicated server (Ex. google drive, Amazon S3, MS Azure, etc)
+- To access these storage places use:
+	- "curl" command which gets files from a server by making an API call = requests module in Python = Get request in Postman 
+		curl <file_url>			-> Open the file for reading only, no download
+		curl -o <o/p file> <file_url>	-> Download the
+	OR)
+	- "wget" which downloads the file by default
+
+
+Searching in fs
+================
+	find <location> [search criteria]
+	find / -name pam.d -type d 
+
+
+Flow control and conditions
+===========================
+- Conditions using if-else statement
+
+	Syntax
+	======
+		if [ Expression ]
+			statement 1
+			statement 2
+		else
+			statement 1
+			statement 2
+		fi
+
+	Note
+	=====
+	Spaces inside the expression prackets are mandatory
+
+
+- Flow Control
+
+	Syntax
+	======
+		for i in {1..100}; do echo $i; done

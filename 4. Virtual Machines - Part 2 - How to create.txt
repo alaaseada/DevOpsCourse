@@ -1,0 +1,41 @@
+How to create a virtual machine?
+================================
+	
+	- On primses 
+		- Install a hypervisor (VMWare for example)
+		- Create a new VM
+	OR)
+
+	- Connect to a Cloud Provider of your choise for example
+		- Amazon AWS 
+		- Microsoft Azure
+		- Google Cloud 
+	  via its Console/portal, and create a new Cloud Computing Unit Ex. EC2 on AWS via 
+
+	What the DevOps Engineer will do?
+	===================================
+	- Create a script which makes a call with a request to AWS EC2 API to create for example 10 EC2 instances 
+		How the DevOps Engineer write the script?
+		=========================================
+		Using
+			- AWS CLI
+			- AWS API (Ex. Boto 3 in Python)
+			- AWS CDK (Cloud Development Kit)
+			- AWS CFT (Cloud Formation Template)
+			- TERRAFORM which can automate infrastructure for any Cloud Provider
+	- AWS will validate the request to make sure that it is authenticated and authorized, then responses back with the instances 
+
+	Note	
+	====
+	- Don't ever use a tool because it is popular instead use the one that fits into your requirments and environment 
+	- For Example, working in a complete AWS environment will dictate using AWS tool over Terraform because it will get the support from AWS first in case any new product is launched
+	- Another Example, in case of having a Hybrid Cloud Model in the company, Terraform will be the best choice because it is platform independent 
+	
+	Benefits
+	=========
+	- This will automate the creation of VMs and saves time 
+	- Also because of the automation, less errors might raise 
+
+	
+
+ 

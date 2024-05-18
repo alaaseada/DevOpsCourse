@@ -1,0 +1,32 @@
+- After creating a virtual machine on AWS we need to connect to it which can be done via:
+	- AWS Console	
+		- Tick machine -> Connect 
+			- EC2 instance connect
+				- Not an efficient way because we are connecting to AWS UI
+				- The session expire after a while 
+			- SSH client using SecureCRT and .pem file generated or via Windows CMD ssh -i "Ubuntu-machine-1-Key.pem" ubuntu@ec2-18-215-145-113.compute-1.amazonaws.com
+
+- Terminate the instance to be ready to create a new one using the AWS CLI
+
+
+What a DevOps Engineer do?
+==========================
+ - Uses AWS CLI
+	- Install AWS CLI
+	- Verify the installation by > aws version 		Will show all options
+				  Or > aws --version		Will show the version of AWS CLI installed
+	- Configure the AWS CLI with the access key to authenticate the terminal
+		aws configure 	
+	- Do any action as a command
+		Ex: create 2 EC2 instances 
+			aws ec2 run-instances --image-id ami-xxxx --count 2 --instance-type t2.micro --key-name xxxx --security-group-ids sg-xxxx --subnet-id subnet-xxxx
+OR)
+	
+ - Use AWS CloudFormation Templates 
+	- AWS Console -> CFT -> Create Stack -> Browse to the .yaml template file 
+
+OR)
+
+ - Use the AWS API 
+	- For example, using a programming language like Python and with the help of Boto3 module that is mainly for contacting AWS services we can create resources via 
+	  an application

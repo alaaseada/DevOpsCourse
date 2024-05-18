@@ -1,0 +1,86 @@
+What is DevOps?
+===============
+
+In Software development there are 3 main framework that govern the process of Development and Delivery of SW
+		
+	- WaterFall
+	===========
+		Where the Software is analyzed -> ----------------Code--------------- -> Test -> Deploy 
+		It is 
+			- Sequential
+			- Less favorable
+			- More errors can be raised at the last stage which make it hard to be fixed rapidly
+	- Agile
+	=========
+		Where the Software is Analyzed -> (Design -> Code -> Test) iteratively -> Deploy
+		Allows for 
+			- Less errorous code
+			- Collaborative work
+			- Faster deployments than Waterfall because of less errors
+	- DevOps (CI/CD)
+	================
+		Is a philosophy Where a team of operations and development takes the responsibility of the whole SW lifecycle to deliver 
+		a SW in the most effecient and fast way. 
+		
+		The iterative processes are done automatically and include Deployments that can be daily or even hourly 
+ 		Analyzed -> (Design -> Code -> Test -> Deploy (release)) iteratively 
+			- More releases
+			- Uses the Agile framework
+			- Faster delivery
+
+CI/CD (Continuous Integration/Continuous Delivery or Deployment)
+================================================================
+Is a DevOps Software Development practices that automates the SD lifecycle tasks to get a higher quality of SW and faster SD cycle
+
+	- CI
+	  Continuously merge code from different code commits into a single shared repository and make it ready for the upcoming automated
+	  building and testing 
+	- CD
+		- Delivery
+		  Create a release and wait for an approval (human intervention) before being deployed in production
+ 
+		- Deployment
+		  SW is pushed to production automatically after been tasted (No human intervention)
+
+
+	The pipeline = 						==> CDelivery (Manual) to production environment
+		CI (Build + Test) ==> Staging Deployment ==> 
+								==> CDeployment (automatically) to production environment
+
+
+Most commonly used CI/CD tools
+==============================
+	- Jenkins
+	- CircleCI
+	- GitLab
+	- Travis CI
+	- Bambo
+	- Argo
+	- Buddy
+
+What does Cloud Native mean?
+============================
+	- It means that we are developing SW that can take advantage of the Cloud Computing Foundation and use the public/private/or hybrid cloud.
+	- If the application is running in a container or if it is an API for example, we can call the application a Cloud Native App
+
+DevSecOps
+=========
+	Equals the DevOps + Security 
+	= IT Operations + Deployment + Delivery + Security
+
+IaaC
+===
+	- Infrastructure as a Code is a very important pillar of DevOps where we can Manage/Provision HW via configuration/definition files 
+	- Those files can be automatically deployed on Cloud Infrastructure or even on premises 
+	- TERAFORM is the most commonly used tool for IaaC because it is platform independent. It can work on AWS, Azure, Alibaba, IBM, or on premises
+
+SRE
+===
+	- Site Reliability Engineers are those who take the responsibility of ensuring the delivery of a reliable/stable releases that meet
+	  the business goals of the SW where,
+		- Developers	-> Focus on produce frequent releases and updates
+		- Operations	-> Focus on keeping the application stable and reliable despite of the number of updates
+		- DevOps	-> Focus on the fast delivery of the updates despite of its reliablity
+		
+	- So the SRE is the practice that fill the gap among these teams by using system management, and application monitoring tools			
+						

@@ -1,0 +1,21 @@
+- The DevOps Engineer has to track the resource usage on the cloud to avoid extra costs
+
+
+Project's description
+=====================
+	- A company that has EC2 instances, S3 buckets, Lambda fns, IAM need to monitor these resources
+	- Every day at 6:00 PM a report should be generated 
+	- On AWS this report can be configured and generated in a reporting Dashboard 
+	OR)
+	- DevOps Engineer can write a shell script with the help of AWS CLI knowledge to build the report
+	- Add this shell script to a daily cron job at 6:00 PM to be generated
+
+
+Steps
+=====
+	- Check AWS CLI reference for AWS commands
+	- Connect to EC2 instance 
+	- Configure AWS CLI with access keys
+	- Create a new script -> check resource_tracker.sh
+	- Add it to the crontab of the user 
+		0 18 * * * bash ~/resource_tracker.sh
