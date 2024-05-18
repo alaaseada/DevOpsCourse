@@ -1,11 +1,22 @@
- Initialize a new Repo
-=====================
+ Initialize a new Repo & its workflow
+=====================================
 	$ mkdir <name_of_repo>
 	- make changes
 	$ git init 
 	$ git status
 	$ git add <files | .>
 	$ git checkout <file>		-> Removes file from git tracking 
+	$ git commit -m "commit msg>	-> Commit the changes to the local repo
 	$ git remote -v			-> Get the remote repository
 	$ git remote add <name><url>	-> Add a remote repository. Will need it if this repo is not a cloned one
-	$ git push <local><remote>	-> Push the local repo to the remote repo
+	$ git push <remote><local>	-> Push the local repo to the remote repo
+
+
+Branches
+========
+	$ git branch <name>		-> Create a new branch but don't switch to it
+	$ git checkout -b <name>	-> Create a new branch and switch to it
+	$ git branch -v			-> List all branches 
+	$ git branch -m <old><newname>	-> Rename a branch
+	$ git branch -d <name>		-> Delete a branch
+	$ git checkout <name>		-> Switch to a branch
