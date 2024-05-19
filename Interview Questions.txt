@@ -163,4 +163,13 @@ OR)
 31. What is the difference between Merge, rebase and cherry-pick?
 	- Cherry-pick is the easiest option it is done manually for each commit, which makes it suitable only if we have few number of commits
 	- Rebase will add the changes to the master branch in a linear fashion, so the logs will reflect the timeline of changes 	
-	- Merge will add the changes on the top of the master branch commits. So it might be hard to get the real timeline of changes  		
+	- Merge will add the changes on the top of the master branch commits. So it might be hard to get the real timeline of changes  
+
+32. What is the difference between AWS CloudWatch and CloudTrail?
+	- CloudWatch	-> A service monitors AWS resources and applications
+	- CloudTrail	-> A service that records API activities in an AWS account
+
+33. What is the difference between AWS EKS and ECS?
+	- Both are Container Orchestration Services; however, ECS is an AWS proprietary solution for running, stopping and managing 
+	  containers in a cluster while EKS is a Kubernetes managed service that allows teams to deploy Kubernetes cluster on AWS without
+	  the need to manually install Kubernetes on EC2 instances 
