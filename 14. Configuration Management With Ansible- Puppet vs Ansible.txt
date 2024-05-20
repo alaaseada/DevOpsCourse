@@ -1,0 +1,48 @@
+What does System Administrators do?
+===================================
+- In a scenario where a system Admin is managing a bunch of on premises servers (100) that run various OS (Win, RedHat, Ubuntu), he will be responsible 
+  for:
+	- Upgrading the system (Ex. CentOs 8 -> 9)
+	- Install security patches  
+	- Install SW as needed
+
+ Issue
+ =====
+	- It will be a painful and tidious process to manually do these jobs on all servers
+	- To do automatically via scripts, we need to write a script for each and every OS/distribution (using shell, PowerShell, etc.)
+	- With the booming of Cloud services, the number of server has increased even more (10x)
+
+ Configuration Management
+ ========================
+	- Is a concept that is to come over all issues above
+
+	Tools
+	======
+	- Puppet
+	- Chef
+	- Ansible	-> The most popular / Developed by RedHat
+	- Salt
+
+ Puppet vs. Ansible
+ ==================
+			Puppet									Ansible
+    -------------------------------------------------------------------------------------------------------------------------------------
+      - Pull mechanism						- Push mechanism
+		The Agents poll the Master at				Where the Devops Engineer write the Ansible playbook on his laptop 
+		regular intervals for site/node config			for example and then push it to the instances to be configured
+      - Master/Slave Arch					- Agentless Model
+		Configure one machine as a Master			No configurations done on the agents Just put the DNS names/IP of the 
+		and configure other machines as Slaves			machines in an inventory file and has the passwordless authentication enabled
+								- Fully supported by Windows and Linux
+      - Uses Puppet language which must be learned		- Uses YAML which is popular, simple to write, and easy to understand
+								- One can develop Ansible modules (in Python) and share it via Ansible Galaxy for public use
+
+ 	SO) Ansible if much more convenient for automation because of the Agentless model (All we need is IP of node),
+	    Moreover, a dynamic inventory file is a feature that can be configured that allows for detecting new agents 
+	    and add them automatically to the inventory file 
+
+	Disadvantages of Ansible
+	========================
+		- Harder to be done on Windows compared to Linux
+		- Debugging is not easy to detect the issue
+		- Performance issues with the increased number of agents to thousands

@@ -1,0 +1,30 @@
+ - DevOps Engineer needs to know some of the AWS services that help him accomplish his tasks 
+
+ AWS Essential services to know as a DevOps Eng.
+================================================
+	1- EC2		-> Virtual machines
+	2- VPC		-> Network
+	3- EBS		-> Block Storage 
+	4- S3		-> Object Storage
+	5- IAM 		-> Identity and Access Managment
+	6- CloudWatch	-> Monitoring AWS resources and applications and drive events  
+	7- Lambda	-> Event driven serverless compute (functions) for short actions
+	
+	**** Cloud Build Services that allows for applying CI/CD strategy
+		8- AWS Code Pipeline	-> Define nodes, targets, commands
+		9- AWs CodeBuild	-> Compile code and run some tests
+		10- AWS CodeDeploy	-> Deploy code to EC2 or on premises service
+
+		Note
+		====
+		- Use them when you are restricted to use only AWS as a cloud platform. Or use Azure build services to work on Azure
+		- If you have a plan/option to move from AWS to another platform, use something more generic like Jenkins 
+	
+	11- AWS Configuration	-> Monitor configurations and take corrective actions in case of rules' violation
+	12- Billing		-> Keep an eye on the spendings on the cloud services
+	13- AWS KMS		-> Managing keys, secrets, and certificates
+	14- Cloud Trail		-> Record API activities in the AWS account. Has historical log
+	15- **** AWS EKS	-> Fully managed K8s service; allows for deploying K8s clusters on AWS without the need to manually install K8s on EC2 instances
+	16- **** AWS ECS	-> Container Orchestration Service; AWS proprietary; allows running, stopping and managing containers in clusters
+	17- **** Fargate	-> Serverless compute for containers
+	18- Elastic Search	-> Allow searching in massive number of files (Ex. logs of microservices)

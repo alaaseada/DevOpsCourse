@@ -1,0 +1,14 @@
+Deploy a Node JS app on AWS
+===========================
+	- Clone the repo to the local machine
+		- npm install
+		- np start
+		- if it works -> continue
+	- Create an EC2 UBUNTU machine
+		- install nodejs, npm
+		- clone the repo
+		- create the .env file
+		- npm install
+		- edit the security group rules to allow inbound traffic on port 3000
+		- npm start
+	DONE

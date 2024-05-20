@@ -173,3 +173,35 @@ OR)
 	- Both are Container Orchestration Services; however, ECS is an AWS proprietary solution for running, stopping and managing 
 	  containers in a cluster while EKS is a Kubernetes managed service that allows teams to deploy Kubernetes cluster on AWS without
 	  the need to manually install Kubernetes on EC2 instances 
+
+34. What is the programming language of Ansible?
+	- Python is used to develop Ansible Modules
+
+35. Does Ansible support Linux and Windows?
+	-Ansible supports both OSs. It uses SSH protocol to communicate with Linux and WinRM to communicate with Windows
+
+36. Why would you choose Ansible over Puppet or Chef?
+	
+ Puppet vs. Ansible
+ ==================
+			Puppet									Ansible
+    -------------------------------------------------------------------------------------------------------------------------------------
+      - Pull mechanism						- Push mechanism
+		The Agents poll the Master at				Where the Devops Engineer write the Ansible playbook on his laptop 
+		regular intervals for site/node config			for example and then push it to the instances to be configured
+      - Master/Slave Arch					- Agentless Model
+		Configure one machine as a Master			No configurations done on the agents Just put the DNS names/IP of the 
+		and configure other machines as Slaves			machines in an inventory file and has the passwordless authentication enabled
+								- Fully supported by Windows and Linux
+      - Uses Puppet language which must be learned		- Uses YAML which is popular, simple to write, and easy to understand
+								- One can develop Ansible modules (in Python) and share it via Ansible Galaxy for public use
+
+	 SO) Ansible if much more convenient for automation because of the Agentless model (All we need is IP of node),
+	    Moreover, a dynamic inventory file is a feature that can be configured that allows for detecting new agents 
+	    and add them automatically to the inventory file 
+
+37. What language is used to write Ansible Playbooks?
+	- YAML	-> Yet Another Markup Language which is a data serialization programming language used to right configuration files
+
+38. Does Ansible support all Cloud Providers?
+	- Ansible is platform independent, it just needs public IP or accessible IP, and an SSH connection 
