@@ -20,6 +20,40 @@
 
  Terraform commands
 ====================
-	- terraform init 	-> Initialize for the selected provider read from "main.tf" file 
+	$ terraform init 	-> Initialize for the selected provider read from "main.tf" file 
+	$ terraform plan	-> Perform a dry-run to the main.tf script
 
-	
+	NOTE
+	====
+	- To perform the plan action, aws must be authenticated by credentials "Access key/secret" in the AWS CLI first via "$ aws configure"
+	  command
+
+
+Teraform Files
+===============
+	- main.tf		-> Is where the create script is written
+	- outputs.tf		-> Is where the output of the script is defined (Ex. for an EC2 instance, its private/public IP, ID, Key-pair, etc)
+	- variables.tf		-> Is where we define veriables that is to be used in the main script instead of hard coding the values
+	- terraform.tfstate 	-> Is the most important file of Terraform because it keeps a track of what has been done
+					- Store it remotely, not on local machine to make it accessible for the team who might build on our infra.
+					  Doing this, we avoid destroying our infra in case of someone runs another version of terraform.tfstate
+					- Never store it in source control for public access 
+					- Never manipulate it. So, best practice is to allow read only on this file
+					- Isolate and organize our tfstate files to reduce the harm in case something went wrong
+						Ex: have 1 for development, 1 for production, 1 for disaster recovery
+
+Terraform Ideal Setup 
+======================
+	- User --------> Jenkins Pipeline --------> Terraform & Git -------> AWS
+							   ||
+							   ||
+						      AWS S3 Bucket -------> AWS Dynamo DB
+
+	In this setup, jenkins will be watching the Github repo. The user will run the build script where Terraform will save the tfstate file 
+	in a central storage (remote backend) like S3 bucket in AWS after applying the changes to AWS. Dynamo db is used to lock the tfstate file in 
+	case of concurrent execution to build script.
+
+
+
+
+ 
