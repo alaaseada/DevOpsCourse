@@ -1,0 +1,25 @@
+ - Check the Github repo -> Write_your_first_terraform_project 
+
+
+	Terraform Code	<-> 	Terraform Provider	<-> Target API
+
+ Using Terraform we can:
+========================
+	- Manage any Infra
+	- Track our Infra
+	- Automate changes
+	- Standardize Configurations
+	- Collaborate 
+
+ Terraform lifecycle
+=====================
+	- Write		-> Configuration files (Check the documentation by CP)
+	- Plan		-> Review changes to be made to infra by Terraform (Dry-run)
+	- Apply		-> Terra provisions our infra and update the state file
+	- Destroy	-> Remove all infra that has been created via this script
+
+ Terraform commands
+====================
+	- terraform init 	-> Initialize for the selected provider read from "main.tf" file 
+
+	

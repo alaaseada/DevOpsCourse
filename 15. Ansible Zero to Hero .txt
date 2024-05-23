@@ -1,0 +1,84 @@
+ How to use Ansible
+===================
+	- Better to start with a Linux machine not Windows for simplicity
+	
+	On Server
+	=========
+		- Install ansible 
+			- sudo apt update
+			- sudo apt install ansible
+	On Agent
+	=========
+		- Allow passwordless authentication
+			- On server & Agent: Create ssh-key-pairs 
+			- On Agent: Copy the server's public key to the authorized-keys 
+
+
+ Should we write Ansible Playbooks all the time?
+=================================================
+	- No, for simple short commands we can just run Ansible adhoc commands from the CLI, the same for shell scripts and Python 
+	  scripts we can just run the commands in shell or python shell.
+	
+	  Only use Ansible playbook for executing bunch of commands.
+
+Ansible Inventory
+=================
+	- A file that contains a list of target machines' IP addresses of DNS names 
+	- Machines can be grouped to make it easy for filteration in command executions
+
+	Ex:
+		[webservers]
+		10.202.23.2
+		10.202.24.2
+		
+		[dbservers]
+		11.23.25.25
+		11.24.25.25
+
+Ansible Adhoc commands
+=======================
+	- $ ansible -i inventory_file <all | IP | Group-name> -m "module" -a "command"
+						   shell	touch devops.txt
+
+	** To know which module to use, just use Ansible documentation "Google search -> Ansible modules"
+	   Will get info about the module "-m" and its arguments "-a"
+
+	
+Ansible playbook
+================
+	- Reference file in docs -> First_playbook.yml
+	- Indentations are so important
+	- Give the playbook a name 
+	- The playbook can have multiple tasks
+	- become: true switch the user to root to perform some privileged commands
+	- Use "-vvv" to verbose and debug the command while executing
+
+	ansible-playbook -i <inventory-file> <playbook.yml file>
+
+
+Real life scenario
+===================
+ - DevOps Engineers use:
+	- Terraform to create the infrastructure of a Kubernetes cluster
+	- Ansible to configre the K8s cluster via playbooks which might contains tens of tasks
+	
+ - Huge playbooks are not recommended for both readability and debugging. That's why Ansible Roles come to an action
+
+
+Ansible Roles
+=============
+	- Is a way of having a simple and organized structure for playbooks 
+	- Available via ansible-galaxy
+	- It will create a tree of folder and files organized to contains tasks, variables, etc.
+		- Tasks		-> For the playbook tasks
+		- Handlers	-> For error and exception handling
+		- Defaults	-> To set default values for variables
+		- vars		-> Contains the variables to be used in the playbook
+		- Test		-> Contains testing codes 
+		- Files		-> Where files that might be needed in the playbook is stored (Ex. index.html that is to be copied to agents)
+		- Templates	-> for Templating 
+
+	$ ansible-galaxy role init <name of role>
+
+ 
+            

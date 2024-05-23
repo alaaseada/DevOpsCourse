@@ -205,3 +205,6 @@ OR)
 
 38. Does Ansible support all Cloud Providers?
 	- Ansible is platform independent, it just needs public IP or accessible IP, and an SSH connection 
+
+39. How to run command aganist specific targets in Ansible?
+	- Just group the targets in a group in the inventory file and specify the group name in the command

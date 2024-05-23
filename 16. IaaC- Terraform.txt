@@ -1,0 +1,27 @@
+ - For a DevOps Engineer who needs 10 virtual machines, he can create these machines manually or automatically
+ - As a DevOps Eng, automation is the key
+ - For this mission, he can select the platform he will use first and then decide which tool he'll use to automate this process. 
+   
+ Infrastructure as a Code (IaaC)
+=================================	
+   Ex:
+	AWS		-> AWS CloudFormation Template (CFT)
+	Azure		-> Azure Resource Manager
+	On premises	-> OpenStack Heat Template
+	Hybrid		-> Learn and write scripts using 2 or more of the above tools
+
+ Drawback
+ =========
+	- If by time, he decided to change the platform, all the written scripts would have to be written again using the new tool
+
+ Solution
+ =========
+	- Use a platform-independent tool like Terraform
+
+ Terraform (API as a Code)
+ =========================
+	- Is a tool that allows writing IaaC scripts that can work on any Cloud Provider with minimum amount of modifications
+	  which is called "API as a Code"
+	- API is an intefrace that allows interacting with the App via scripts/commands
+	- Terraform converts our code to API calls that matches the provider we configured 
+	- It saves time of re-writing scripts and time of DevOps Engineers to learn more than one tool
