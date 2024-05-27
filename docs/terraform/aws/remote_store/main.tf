@@ -5,13 +5,6 @@ terraform {
       version = "~> 5.0"
     }
   }
-  backend "s3" {
-    encrypt = true    
-    #bucket = "${local.account_id}-terraform-state"
-    dynamodb_table = "terraform-lock"
-    key    = "terraform.tfstate"
-    #region = var.aws_region
-  }
 }
 
 # Configure the AWS Provider
@@ -20,7 +13,7 @@ provider "aws" {
 }
 
 # Get and set alocal variable for account ID that authorized Terraform
-#data "aws_caller_identity" "current" {}
+data "aws_caller_identity" "current" {}
 
 locals {
     account_id = data.aws_caller_identity.current.account_id
@@ -29,7 +22,7 @@ locals {
 
 # Create an S3 bucket
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "${local.account_id}-terraform-state"
+  bucket = "{$local.account_id}-terraform-state"
 
   tags = {
     Name        = "Terraform bucket"

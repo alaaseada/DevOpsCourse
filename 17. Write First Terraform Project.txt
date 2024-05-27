@@ -55,5 +55,22 @@ Terraform Ideal Setup
 
 
 
+Modules
+========
+	- Is all about writting a reusable piece of code to avoid repitition.
+	- Example: use the code that veeramalah provided in his repo to create an S3 bucket and a dynamo db table
+	
+	Types
+	=====
+		- Existing and provided by other developers
+		- Created by you
 
+Downsides of Terraform
+=======================
+	- Can become very complex and difficult to manage for big projects
+	- State file is a single source of truth
+	- Try to play as a configuration Management Tool as well
+	- Single-direction reflection in state file which means manual changes on Cloud providers' consoles do not reflect on terraform state file
+	- Not GitOps friendly tool. Don't play well for Flux, Argo CD for example
+	
  

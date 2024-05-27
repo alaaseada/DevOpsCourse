@@ -1,0 +1,8 @@
+  # Inside Terraform body
+  backend "s3" {
+    encrypt = true    
+    bucket = "id-terraform-state"
+    dynamodb_table = "terraform-lock"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
