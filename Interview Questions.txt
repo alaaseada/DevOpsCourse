@@ -208,3 +208,30 @@ OR)
 
 39. How to run command aganist specific targets in Ansible?
 	- Just group the targets in a group in the inventory file and specify the group name in the command
+
+40. What is Terraform?
+	- Is a tool that allows having our Infrastructure as a Code (IaaC) which makes it easy to version, share and resuse.
+
+41. What are the key features of Terraform?
+	- IaaC: which allows IT professionals to write config files in a high-level language which is HashiCorp Config Language (HCL). It is 
+	  JSON-like, declarative and human readable
+	- Dry-run: it allows testing the results of our config file without real execution which makes it easier to detect errors and make sure that
+	  the config files will do exactly what we really want
+	- Change Automation: It can detects that changes a user made to cnfig files and builds an incremental execution plan that respects 
+	  dependencies accordingly
+	- Resource graphs: It can build a resource graph which gives the users greater insight into their infra
+
+42. Why IaaC?
+	- Allows to build, change and manage Infra not manually but through code
+	- Makes it easier to edit and distribute configs
+	- It ensures that you consistently provision the same environment each time
+	- Allows to automation and makes configuration management easier
+
+43. What do you understand by terraform backend?
+	- Each Terraform configuration can specify a backend, which defines two main things:
+		- Where operations are performed 
+    		- Where the state is stored (Terraform keeps track of all the resources created in a state file)
+
+    More Terraform interview questions can be found in https://www.simplilearn.com/terraform-interview-questions-and-answers-article
+
+
