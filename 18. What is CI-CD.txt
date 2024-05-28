@@ -1,0 +1,69 @@
+CI/CD
+======
+	- Is Continuous Integration of set of tools that allows Continuous Delivery of a product to customers 
+	- Each and every product goes through a set of processes including:
+		- Planning
+		- Designing
+		- Development
+		- Unit testing			-> Test every block "function" and make sure that it works properly and produce the desired output
+		- Static Code Testing		-> Scan the code to make sure that no redundant work, not extra variables, etc
+		- Code Quality/Vulnerability	-> Check for memory usage, speed, security vulnerabilities, etc.
+		- Automation testing		-> Run unit testing using automated testing tools to reduce the number of cases written manually
+		- Reports			-> Produce reports on each of the steps above
+		- Deployment 			-> Deploy the app on a platform for customers to access it
+
+
+Popular CI/CD tools
+====================
+	- Jenkins
+	- TravisCI
+	- CircleCI
+	- Gitlab
+	- Github Actions
+
+How CI/CD works?
+================
+	- Developers write code	-> Push it to a repository (ex. Dev-Repo) on a VCS (Ex. github)
+	- Deploy a CI/CD tools (ex, Jenkins) and configure it to watch for any commit or pull request on any branch of the Dev-Repo Repository
+	- The code will go through Jenkins pipeline
+	- Jenkins will orchestrate the work of some automated tools that are integrated in it to take some actions whenever a configured trigger 
+	  happens. Ex:
+		- Maven		-> Builds my app and runs a unit test
+		- Sonar		-> For Qualitu Control testing
+		- ALM 		-> For reporting
+		- K8s, Docker, or EC2
+
+	
+Jenkins promotions
+===================
+	- Jenkins can promote (based on manual or auto approval) the project from one stage to another based on the result of the pipeline 
+	- Stages like:
+		Dev		-> Where developers are developing and testing the application (might need 1 or 2 servers)
+		Staging		-> Where we can create a cluster or a larger # of instances > Dev < Prod
+		Production	-> A replication of what a customer use (a costly setup; might have many more servers, memory, CPU, etc.)
+
+Jenkins 
+=======
+	- Needs 1 master node and multiple other Worker nodes that an added to the Master to pipeline work of different teams. So, offload the Master
+	  , and avoid dependencies conflicts
+	- Master node is used for scheduling purposes and management 
+	- Ex: Have 1 EC2 instance as a master Jenkins node and 10 EC2 instances as a secondary nodes; Having 10 teams with around 100 developers,
+	  we can assign Instance 1 to process commits from Team 1 and Instance 2 for Team 2 and so on
+	- Because Hardware is costly and its maintenace is costly as well, we might need to automatically scale up and down out Jenkins nodes 
+
+	  Note
+	=======
+	 - If during weekends there is no chance of any commit, so we might need to scale down Jenkins nodes to zero to save cost
+	 - Jenkins master node cannot be deleted. 
+	 - So, better to use another CI/CD tool
+
+
+Modern CI/CD setup
+==================
+	- In order to reduce costs and make the most out of resources, now we can use Github Actions 
+	- Where we can configure a K8s pot to start and work as CI/CD pipeline whenever a commit action occurs in a git repo or a group of git repo
+	  , and after finishing the task, destroy the pot. 
+	- It is very scalable
+
+
+	 

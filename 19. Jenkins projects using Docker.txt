@@ -1,0 +1,20 @@
+Modern CI/CD setup
+===================
+	- Instead using Jenkins Master node on a server or EC2 instance, and Jenkins Worker nodes on VMs as well; which is high in cost 
+	  and ineffecient in resource utilization, Just use Jenkins Master on Docker and run Docker Containers as needed and destroy them
+	  once the job is done 
+	- This solution is apropriate for small/medium scale applications 
+	- Docker containers are very scalable and easy to be edited via the Docker file 
+
+
+To setup this arch
+==================
+	- Follow the README file in this  https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero
+		- Create an EC2 Instance
+		- Install Jenkins 
+		- Edit SG add inbound port 8080
+		- Configure and start Jenkins
+		- Install docker.io
+		- Grant permissions to jenkins user on docker daemon	
+		- Restart jenkins http://IP:8080/restart
+		- Install Docker pipeline plugin on Jenkins to allow using Docker as an Agent in case the Jenkins file stated that
