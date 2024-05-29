@@ -1,0 +1,58 @@
+What is the similarity between Containers and VMs?
+	- They are used to isolate applications and their dependencies in a self-contained unit to make it run anywhere
+
+What is Virtaulization
+=======================
+	- Hardware-level virtualization
+	- Is a technology that allows sharing hardware between systems for the purpose of isolation  
+	- It uses what is called "Hypervisor"
+	- Has two types:
+		- Type 1: Bare metal
+			- The hypervisor directly interface the host machine's hardware 
+			- Better performace, scalability, stability
+			- No need for Host OS
+			- Less hardware compatibility because the Hypervisor has less built-in device drivers
+		- Type 2: Hosted 
+			- The host machine will have an OS that manages the Hardware drivers; away from the hypervisor, which is considered 
+			  more "hardware compatibility"
+			- The host OS is considered an Overhead because it consumes valuable resources "Lower performance"
+
+What is Containerization?
+=========================
+	- Operating-System-Level virtualization
+	- Is a technology that allows isolating applications and dependencies in a lightweight manner
+	- It uses what is called "Docker Engine"
+	- Containers share the host system's Kernel with other containers 
+
+What is Docker?
+===============
+	- An open-source project based oon Linux containers
+	- Uses Kernel features like "Namespaces" and "Control Groups"
+
+	Features
+	========
+		- Ease of use: easy to build and test portable application. Has the mentra of "Build once, run anywhere"
+		- Speed: Fast to run because it is lightweighted and does not need an OS to boot up every time
+		- Ecosystem: Docker Hub is a place where docker users can find Docker images that fits their need and are ready to be used with 
+		  little-to-no modifications
+		- Scalability and modularity: Docker allows to break out the application into multiple docker containers that can be easily connected 
+		  yet independent so they can be updated in the future with no hustle
+
+Docker Fundamental Concepts
+===========================
+	- Docker Engine
+		- the layer on top of which Docker runs
+		- lightweight runtime
+		- manages images, builds, containers, etc
+		- consists of:
+			- Daemon	-> the service that runs on the host and executes the commands
+			- Client	-> user interface for Docker where the end user communicates with the daemon through it
+			- REST API	-> to interact with Docker daemon remotely
+	- Dockerfile 
+		- contains the instructions using which we build Docker images
+	- Docker image
+		- read-only template built using instruction in the Dockerfile
+		- each instruction is a layer of the image's file system
+		- uses the Union File System (UFS)
+	- Union File System
+		- 
