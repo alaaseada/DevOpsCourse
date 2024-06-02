@@ -1,0 +1,31 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Test') {
+            agent{
+                docker {
+                    image 'maven:3-sapmachine-22'
+                }
+            }
+            steps {
+                sh 'mvn --version'
+				sh 'mvn archetype:generate -DgroupId=local.test.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false'
+				sh 'cd my-app'
+				sh 'mvn package'
+				sh 'java -cp target/my-app-1.0-SNAPSHOT.jar local.test.app.App'
+			}
+        }
+        
+        stage('Build'){
+            agent{
+                docker{
+                    image 'ubuntu:24.0'
+                }
+            }
+            steps {
+                sh 'docker stack deploy -c stack.yml wordpress'
+            }
+        }
+    }
+}
