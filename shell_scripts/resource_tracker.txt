@@ -1,0 +1,29 @@
+#!/bin/bash
+
+######################
+# Author: Alaa seada
+# Date: 15 May 2024
+# Version: v1
+# Description: this report is giving information about:
+#       1. EC2 instances
+#       2. S3 Buckets
+#       3. Lambda Functions
+#       4. IAM Users
+#########################
+
+echo "EC2 instances Report"
+echo "=========================="
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+
+
+echo "S3 Buckets"
+echo "========================="
+aws s3 ls
+
+echo "Lambda Functions"
+echo "========================"
+aws lambda list-functions
+
+echo "IAM Users"
+echo "========================"
+aws iam list-users

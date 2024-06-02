@@ -6,6 +6,18 @@ Modern CI/CD setup
 	- This solution is apropriate for small/medium scale applications 
 	- Docker containers are very scalable and easy to be edited via the Docker file 
 
+How Jenkins works?
+=================
+	- Installing Jenkins on EC2 instance creates a Jenkins Master which should be used only for scheduling purposes 
+	- To overcome overloading the Master node and to overcome the dependencies conflicts, create Jenkins Worker Nodes (VMs) that serve specific categories of Apps
+		- The issue is that some Worker Nodes might be idle for a quite long time because a fewer apps are using, which creates an unnecessary headache of management
+		  and cost
+		- Using Docker containers will be the ideal solution for this situation
+	
+	Jenkins with Docker
+	===================
+		- the current approach is to use Docker containers as agents for the Jenkins Master Node 
+		- just spin up a docker container based on the request coming and tear it down once the mission is accomplished
 
 To setup this arch
 ==================
@@ -14,7 +26,41 @@ To setup this arch
 		- Install Jenkins 
 		- Edit SG add inbound port 8080
 		- Configure and start Jenkins
-		- Install docker.io
-		- Grant permissions to jenkins user on docker daemon	
+		
+		To allow Jenkins to deal with Docker containers as agents we need to install Docker first:
+			- Install docker.io
+			
+			** Docker daemon is by defualt inaccessible to anyone except users in Docker group, so
+			- Grant permissions to jenkins and optionally Ubuntu user on docker daemon
+			
+			** To test that jenkins user has the permission to create docker containers
+			- switch to the user Jenkins
+			- execute "docker run hello-world"	
+		
 		- Restart jenkins http://IP:8080/restart
 		- Install Docker pipeline plugin on Jenkins to allow using Docker as an Agent in case the Jenkins file stated that
+		- Restart Jenkins 
+		
+Create a new Pipeline
+=====================
+	- New Item
+		- Free Style		create the pipeline using GUI (drawback: is not a declarative method)
+		- Pipeline		create the pipeline programmatically 
+						- very useful for recreation purposes and documenting work
+						- can be saved on a VCS and ve available for peer checks
+						- can be versioned 
+						
+Jenkins pipleline 
+==================
+	- Specify the agent that is gonna do the jobs 
+	- Specify the stages which can vary from one project to another 
+		Ex: Build, test, deploy, etc
+	- Each stage has steps that can be one or more command 
+	
+	Check out the first_jenkins_pipeline in docs -> jenkins
+
+Tips
+====
+	- If you have no knowledge about who to write Groovy language to write the pipeline, just use the Pipeline Syntax Generator of your pipeline
+	- If you have your pipleline code on a Source Code Management (SCM) System, just select this option from the pipeline definition dropdownlist 
+	  and provide the URL and the path of the repo

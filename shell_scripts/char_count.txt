@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Meta data
+
+
+string="mississippi"
+
+echo "There are $(grep -o 's' <<<$string | wc -l) Ss in Mississippi"

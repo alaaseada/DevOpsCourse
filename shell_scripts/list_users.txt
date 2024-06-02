@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# #################
+# Author: Alaa Seada
+# Date: 14-5-2024
+# Description: the script gets the users who have read access to a repo
+# Variables: username & personal token
+# Arguments: Name of organization & Name of repo
+# Version: v1.0
+# ##################
+
+# Get username & taken variables
+username=$username
+token=$token
+
+# Read the command arguments
+repo_owner=$1
+repo_name=$2
+
+# Make a Git API request to get collaborators 
+url="https://api.github.com/repos/$1/$2/collaborators"
+collaborators="$(curl -s -u $username:$token $url | jq -r '.[] | select(.permissions.pull == true) | .login')"
+
+# Get the results displayed
+if [[ -z $collaborators ]]; then
+        echo "No users with read access were found"
+else
+        echo "Users with read access to this repo are"
+        echo "$collaborators"
+fi

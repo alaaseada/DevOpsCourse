@@ -1,0 +1,35 @@
+#!/bin/bash
+
+####################
+# Author: Alaa Seada
+# Date: 15-5-2024
+# Description:
+#       1.  Find the count of odd and even numbers between 2 and 109
+#       2. Find the numbers dividable by 3 & 5 but not 15
+# Version: 1.0
+###################
+
+set -e
+
+evens_count=0;
+odds_count=0
+div_numbers=""
+
+for i in {1..15};
+do
+        if [ `expr $i % 2` == 0 ]
+        then
+         evens_count=$(($evens_count+1))
+        else
+         odds_count=$(($odds_count+1))
+        fi
+
+        if ([ `expr $i % 3` == 0 ] || [ `expr $i % 5` == 0 ]) && [ `expr $i % 15` != 0 ]; then
+         div_numbers="$div_numbers, $i"
+        fi
+done
+
+
+echo "Number of even numbers= $evens_count";
+echo "Number of odd numbers= $odds_count";
+echo "List of numbers divisable by 3 but not 5= $div_numbers"

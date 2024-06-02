@@ -55,4 +55,41 @@ Docker Fundamental Concepts
 		- each instruction is a layer of the image's file system
 		- uses the Union File System (UFS)
 	- Union File System
-		- 
+		- merge files and directories of the same path (branches)
+		- when a file is to be edited, it makes a copy of the file and modify it while keeping the original untouched (copy-on-write system)
+		- wliminates duplication
+		- allows for layer segregation because Docker only propagates the changes  
+	- Volumes 
+		- is where the data of a docker container resides 
+		- presistent and shareable among containers
+		- separated from the UFS and apprears as normal dirs and files on the Host system
+	- Containers
+		- built from Docker images
+		- wraps up the OS, app code files, runtime, system tools and libraries
+		- Docker adds a layer of read-write file system to the containers to be writable
+		- Docker adds a network interface to the container to allows communicating with the host, assign it an available IP and executes the process we specify to run the App
+
+What are the main features that are behind containers?
+======================================================
+Linux Kernel has 2 important features that makes containers possible 
+	- Namespaces
+		Which defines the scope that the container can view and access from the host machine's Linux system. The most important namespaces are:
+			- USER		Isolates users within each container
+			- PID		Processes view including PID 1
+			- NET		Network view
+			- MNT		Mounting view. Containers of different mount namespaces sees different filesystem hierarcy
+			- UTS		Unix Timesharing System (hostname, domain name, etc)
+			- IPC		Interprocess Communication that isolates IPC resources between processes running inside each container
+	- Control groups (cgroup)
+			- a Linux kernel feature that isolates, prioritizes, and accounts for the resource usage of a set of processes
+			- it makes sure that Docker containers just use resources they need and do not exhauste the system's resources
+			- set up limits of resources a container can use  
+
+When to use Containers and when to use VM?
+==========================================
+	- Use containers when we need to run multiple copies of an app 
+	- Use VM when we need to run multiple apps on multiple servers
+
+Concerns regarding containers
+============================
+	1. Security risks as the share the same Kernel with the host machine where they can make syscalls to the host system unlike VMs
