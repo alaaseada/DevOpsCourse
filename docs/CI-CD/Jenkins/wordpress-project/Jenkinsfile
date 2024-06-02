@@ -14,8 +14,11 @@ pipeline {
         }
         
         stage('Build'){
-            agent { dockerfile true }
-            
+            agent { 
+				dockerfile {
+                   filename 'Dockerfile'  
+				}
+            }
             steps {
                 sh 'docker stack deploy -c stack.yml wordpress'
             }
