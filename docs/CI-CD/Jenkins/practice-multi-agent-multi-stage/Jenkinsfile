@@ -1,0 +1,16 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Backend') {
+            agent{
+                docker {
+                    image 'maven:3-sapmachine-22'
+                }
+            }
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+    }
+}
