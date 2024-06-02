@@ -17,7 +17,7 @@ pipeline {
             agent { 
 				dockerfile {
                    filename 'Dockerfile'  
-				   dir '/docs/CI-CD/Jenkins/wordpress-project'
+				   dir '/var/lib/jenkins/workspace/multi-agent-multi-stage/docs/CI-CD/Jenkins/wordpress-project'
 				}
             }
             steps {
