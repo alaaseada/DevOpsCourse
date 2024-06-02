@@ -21,7 +21,7 @@ pipeline {
 				}
             }
             steps {
-                sh 'docker stack deploy -c stack.yml wordpress'
+                sh 'docker stack deploy -c /var/lib/jenkins/workspace/multi-agent-multi-stage/docs/CI-CD/Jenkins/wordpress-project/stack.yml wordpress'
             }
         }
     }
