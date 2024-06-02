@@ -1,5 +1,0 @@
-FROM  ubuntu:24.04
-RUN apt-get update 
-RUN apt install docker.io -y
-RUN docker --version
-ENTRYPOINT service docker start
