@@ -12,7 +12,9 @@ How Jenkins works?
 	- To overcome overloading the Master node and to overcome the dependencies conflicts, create Jenkins Worker Nodes (VMs) that serve specific categories of Apps
 		- The issue is that some Worker Nodes might be idle for a quite long time because a fewer apps are using, which creates an unnecessary headache of management
 		  and cost
-		- Using Docker containers will be the ideal solution for this situation
+		- Worker nodes has to be managed for updates, when changing a version of dependency which is headache
+		
+		*** Using Docker containers will be the ideal solution for this situation. Just change was is needed in the docker file and that's it
 	
 	Jenkins with Docker
 	===================
@@ -57,10 +59,19 @@ Jenkins pipleline
 		Ex: Build, test, deploy, etc
 	- Each stage has steps that can be one or more command 
 	
-	Check out the first_jenkins_pipeline in docs -> jenkins
+	Check out the first_jenkins_pipeline in docs -> Jenkins
 
 Tips
 ====
 	- If you have no knowledge about who to write Groovy language to write the pipeline, just use the Pipeline Syntax Generator of your pipeline
 	- If you have your pipleline code on a Source Code Management (SCM) System, just select this option from the pipeline definition dropdownlist 
 	  and provide the URL and the path of the repo
+
+
+Multi-stage-multi-agent 
+=======================
+	- The beauty of using jenkins with docker is that we can specify for each stage a specific agent 
+
+	Check out the multi-stage-multi-agent in docs -> Jenkins
+
+

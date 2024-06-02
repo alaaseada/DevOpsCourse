@@ -1,0 +1,27 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Backend') {
+            agent{
+                docker {
+                    image 'maven:3-sapmachine-22'
+                }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        
+        stage('Frontend'){
+            agent{
+                docker{
+                    image 'node:22.2.0-alpine3.19'
+                }
+            }
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}
