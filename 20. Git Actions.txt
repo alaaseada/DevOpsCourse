@@ -1,0 +1,67 @@
+What is Git Actions?
+====================
+ - It is the CI/CD tool specific for Github
+ - If our project is to be moved to any other VCS or a private repository then don't use Github Actions "It will be a waste of time"
+
+
+How to create Github Actions?
+=============================
+	- At the root of our repo, create a folder ".gitbub/workflow"
+	- Create a .yml files that contain the definitions of our pipeline
+
+	Ex: check the https://github.com/argoproj/argo-cd repo
+
+	Note
+	====
+	- Many files can be added to the workflow directory where each of which is responsible for doing specific actions for different triggers 
+	- For the syntax and plugins needed to write the CI/CD actions, check out the Github Actions Dcoumentation
+	- We are not responsible for specifying the agents on which the CI/CD actions will take place. Github takes care of all of these details 
+	  we only specify the platform with "run-on" attribute
+	- We can have more than one job 
+	- We can create our own runners if the Github runners do not have enough computing power for example or so. From (settings -> actions -> runners)
+	- We can save our CI/CD secrets securely and use them as variables in our .yml files (settings -> secrets and variables)
+ 
+	Check the https://github.com/iam-veeramalla/GitHub-Actions-Zero-to-Hero.git repo for the first actions file
+
+	uses: actions/plugin-name@version		-> Use this plugin of this version to do the action
+	run: |						-> Allow to write commands
+
+
+What are the pros and cons of Github Actions?
+=============================================
+	Advantages
+	==========
+	- Hosting: Already hosted by Github, we don't need to have our own server to run it like in Jenkins
+	- User interface: which is way easier that of Jenkins and we write less code and almost the exact same code for different applications "Just changing the plugins that 
+	  are already installed"
+	- It is of low cost for private repos which makes it optimal for small organizations and free of cost for public repos
+	
+	
+	Disadvantages
+	==============
+	- It is very scoped to the platform
+	- Github Actions' plugins are very limited in scope
+
+
+Github Actions self-hosted runners
+==================================
+	- Using Github actions we can run our CI/CD actions on:
+		- Github hosted runners		-> 	- Runners that we don't own and have no control over them
+							- Free of charge for public repos, open-source projects
+
+		- Github self-hosted runners	->	- Runners that we own and have control over them
+							- Like what we did when we used Jenkins "we spin up our own server and docker containers"
+							- Use it when 
+								- We have private projects (your code is not opened - private repos)
+								- We need specific computing power and requirements of the node to be used
+								- When security is a priority which means we need to control where our code is running and to whom it is accessible
+
+
+Lab
+===
+	- Let's assume that our runner will be an EC2 instance, so create one and allow inbound access for HTTP and HTTPS
+	- Create the .gitbub/workflow directories on the root of our repo
+	- Create the first_actions.yml file
+	- In the "run-on" specify "self-hosted"
+	
+

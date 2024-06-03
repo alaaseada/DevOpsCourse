@@ -21,6 +21,10 @@ How Jenkins works?
 		- the current approach is to use Docker containers as agents for the Jenkins Master Node 
 		- just spin up a docker container based on the request coming and tear it down once the mission is accomplished
 
+	Note
+	=====
+		Jenkins Master node communicates with Worker nodes via SSH protocol
+
 To setup this arch
 ==================
 	- Follow the README file in this  https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero
