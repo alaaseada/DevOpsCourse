@@ -62,6 +62,8 @@ Lab
 	- Let's assume that our runner will be an EC2 instance, so create one and allow inbound access for HTTP and HTTPS
 	- Create the .gitbub/workflow directories on the root of our repo
 	- Create the first_actions.yml file
+	- Settings of the Repo -> Actions -> runners -> Add new runner
+	- Run the code provided on the EC2 machine or any machine is to be configured as runner
 	- In the "run-on" specify "self-hosted"
 	
 

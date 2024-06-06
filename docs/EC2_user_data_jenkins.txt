@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Update all packages
+yum update –y
+
+# Add Jenkins reporitory
+wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+# Import the key
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+# Upgrade the packages
+yum upgrade
+
+# Install Java-17
+dnf install java-17-amazon-corretto -y
+
+# Install Jenkins
+yum install jenkins -y
+
+# start jenkins and enable it 
+systemctl enable jenkins
+systemctl start jenkins

@@ -1,0 +1,45 @@
+Agile Methodology
+================
+	- Unlike waterfall methodology in SW development, Agile aims to make the development cycle easy/fast and error free by breaking 
+	  the project into small steps and add testing and deployment at the end of each sprint (short time that lasts from one to 4 weeks
+	  and includes work from cross-functional teams like planning, designing, developing, testing and ends up with deploying a working 
+	  feature and getting feedback from customers) instead of waiting till the end of the development of the whole project.
+	  of the project.
+	- Gains:
+		- Individuals and interactions
+		- Customer collab
+		- Responding to changes
+		- Working SW
+
+	Check this link for more info "https://en.wikipedia.org/wiki/Agile_software_development"
+
+Jira
+====
+	- Project Management Platform
+	- Is a powerful platform that helps managing small/large SW projects  
+	- Allows to track sprints and how much every one has done during a specific period of time 
+
+
+Confleunce and SharePoint
+=========================
+	- Knowledge sharing Platforms
+	- Simple example the documention of any internally used application that the Enterprise uses (like AWS docs, Jenkins, etc)
+
+ServiceNow
+==========
+	- Is used for change and incedent management 
+	- Incident management: for any reason, if an application encounters an issue and thanks to monitoring, every involved user will be notified
+	  with the incident through an alert to take a corrective action as needed. This can be done automatically through integrating servicenow with
+	  the monitoring system
+	- Change management: Is a process of handling the required steps needed to make a change to a production environment
+
+Read the Docs
+=============
+	- Is a free open-source plateform for static web hosting where we can share documentation 
+	- It can be compared to SharePoint and Colfuence but it is not that rich as it is free and cannot be integrated with many tools as well
+	- It integrates very well with Github
+
+Git and Github
+==============
+	- Can also be used to manage projects and show their progress for progress tracking purposes
+	check this "https://docs.github.com/en/actions/managing-issues-and-pull-requests/using-github-actions-for-project-management"

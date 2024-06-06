@@ -1,0 +1,46 @@
+What is Docker?
+==============	
+				-------------------------------------------------------------------------
+				| "Containerization is a concept or technology and Docker Implements it" |
+				------------------------------------------------------------------------
+Docker is a containerization platform that provides easy way to containerize your applications, which means, using Docker you can build container 
+images, run the images to create containers and also push these containers to container registries such as DockerHub, Quay.io and so on.
+
+Docker LifeCycle
+================
+There are three important things,
+
+    docker build	-> builds docker images from Dockerfile
+    docker run		-> runs container from docker images
+    docker push		-> push the container image to public/private registries to share the docker images
+
+Docker terminology 
+==================
+	- Docker daemon	-> Service that listens for Docker API requests and manages Docker objects and it can also communicate with other daemons to manage Docker services.
+	- Docker client	-> Primary way that Docker users interact with Docker. It takes the commands (using DockerAPI) from the user and sends them to the daemon
+	- Docker Desktop-> An easy-to-install application for all OSs' environment that enables building and sharing containerized applications and microservices. 
+			   It includes the Docker daemon (dockerd), the client (docker), Compose, Content Trust, Kubernetes, and Credential Helper. 
+	- Docker registries -> A storage for Docker images. Ex. Docker Hub which is a public/default registry of Docker that anyone can use
+			       Private registries can be created and used instead (via PUSH and PULL commands)
+
+	- Dockerfile	-> A file where you provide the steps to build your Docker Image.
+			   Each instruction in a Dockerfile creates a layer in the image
+			   Changing something in the Dockerfile a rebuilding it, will rebuild the changed parts only
+	- Images	-> Are a read-only template with instructions for creating a Docker container. Often, an image is based on another image, 
+			   with some additional customization
+
+Installtion and usage
+=====================
+ After installing Docker make sure that:
+	- The daemon is running 
+		- if not, run and enable it
+	- The user has sufficient permissions to interact with docker 
+		- if not, add the user to the group "docker" 
+
+Commands
+========
+	docker run hello-world			check the installation
+
+
+Follow "https://github.com/iam-veeramalla/Docker-Zero-to-Hero" github repo for examples
+	 
