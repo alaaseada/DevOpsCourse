@@ -1,0 +1,62 @@
+ - Docker containers are ephemeral which means that they are short lived. Once the container exits, all its data and resources gone 
+ 
+ Issue Cases
+ ===========
+ - Some applications (Ex. Nginx) need to keep a record of certain things (Ex. log files) for auditing purposes for example
+ - 2 containers tightly related like a backend and a frontend that serves some files from the backend container. If the backend container fails, the frontend container will not be able 
+   to serve other files 
+ - Some applications needs to read a file on the host machine's filesystem
+
+
+ Docker solved these issues using 2 solutions:
+ =============================================
+	- Bind mounts (the simplest solution)
+		- It allows us to bind a directory in our host filesystem to a directory on our container
+		- Dependent on the directory structure and OS of the host machine
+		- If the container goes down, the directory will still be available on the host 
+		- Statically defined by path
+		- Can only be done between the container and the local host
+		- Mainly used for Development. Because the PROD system may not have the same file structure as the DEV
+	- Volumes
+		- Is a logical partition that is created to maintain data 
+		- Sharable between the host and the container
+		- Is not defined explicitly like in the bind mount that's why it is more flexible
+		- Can be mounted to more than one container at the same time
+		- Has a life cycle (create, destroy)
+		- Is fully managed by Docker CLI
+		- The host can be anywhere (local or external like EC2 instance, S3, NFS ...)
+		- Easy to backup
+		- Can be very high performance if they are on a host with high I/O
+		- Works on both Linux and Windows containers	
+
+
+
+ Mounting a volume to a container
+ ================================
+	- docker run -v <src on host: dest on container: options>		-> All options are declared in the same command separated by ":"
+	- docker run --mount src <src> dest <dest>				-> is a more verbose way to state the options 
+
+
+ Commands
+ =========
+	1. Volume lifecycle
+		docker volume ls			-> List all volumes 
+		docker volume create <name>		-> Create a new volume
+		docker volume rm <names of volumes>	-> Remove one or more volumes
+		docker volume inspect <name>		-> Get full information about that volume 
+
+	2. Mount volume
+		docker run --mount source=<src>,target=<target> <image>		-> Create a container with a mounted volume
+		docker ps							-> List all containers
+		docker inspect <container ID>					-> Get full information about a container including the mounted volumes
+ 
+
+Notes
+=====
+	- To delete a volume 
+		- Stop containers that use this volume				docker container stop <name>
+		- Delete these containers					docker container rm <name>
+		- Delete the volume						docker volume rm <name>
+
+To delete all volumes at once
+	docker volume prune

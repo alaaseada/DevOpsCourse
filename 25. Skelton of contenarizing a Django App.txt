@@ -1,0 +1,7 @@
+Follow the instructions in the RHEL9 VM python-web-app 
+
+
+What is the difference between ENTRYPOINT and CMD in Dockerfile?
+================================================================
+	- CMD is configurable, can be changed by docker users
+	- ENTRYPOINT is a static value that cannot be changed

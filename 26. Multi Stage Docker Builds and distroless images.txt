@@ -1,0 +1,21 @@
+What are multi stage Docker builds about?
+=========================================
+- The main purpose of them is to reduce the size of the final image
+- It is about dividing the application into stages each of which is built based on a rich images (Ex. Ubuntu) that allow for building the application
+- Each stage deliver its output to the next stage as needed 
+- The final stage will be based only on the runtime image (Ex. python or OpenJDK), that will allows for accessing the application through the entry point
+- It helps reducing the size and the complexity of docker image and the docker file
+
+
+What are distroless containers?
+===============================
+- They are the most secure and lightest weight containers 
+- That is because they use the minimal version of base images (the runtime that allows the App to run) which make them less vulnerable to hacks and very small in size 
+- Some programming languages are statically typed like GoLang which does not need even a runtime dependencies, the thing tht makes their final images very small and 99% secure
+- Ex. Scratch image -> install to it python or java or use it as it is for Go Apps
+
+To find them: search google go to github repo and explore the language needed
+https://github.com/GoogleContainerTools/distroless
+
+
+ 

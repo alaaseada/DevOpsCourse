@@ -1,0 +1,70 @@
+What is Docker Networking?
+==========================
+- Is used to provide a connection between docker containers and the host machine
+- Also used to provide whether a connection or an isolation between docker containers
+
+Common types of Docker Networking
+==================================
+
+	1. Bridge Networking
+	=====================
+		- Is the default mode of networking between containers and the host machine
+		- Once a container is created, docker creates a v-eth0 (virtual bridge) named "docker0" that connect the container to the host
+		- docker containers are in different subnets and networks from the host machine
+		- All containers on the same host use docker0 to connect to the host and as a result they can reach each other (Which at sometimes is not secure)
+	  	  Ex: c1 -> login && c2	-> Finance in this case c1 can reach c2 and both of them connected to the host via docker0
+		
+		Note
+		====
+		- If there is no connection between the container and the host, the container will be useless as it is a light weighted package that has no OS 
+
+	2. Host Networking
+	===================
+		- The container and the host share the same network
+		- It is unsecure because if the host get compromised, the containers will be compromised as well
+
+	3. Overlay Networking
+	=====================
+		- Is a complicated networking technique that is useful for Container Orchestration Engines (COE) like K8s and swam
+		- It allows to build a cluster of hosts for clusters of containers
+
+
+Conclusion
+==========
+	- Bridge Networking (OOTB)	-> Does not provide isolation
+	- Host Networking		-> Is extremely unsecure
+	- Overlay Networking		-> Is very complicated
+
+
+Docker Custom Bridge Networking
+===============================
+	- Is the solution to provide Networking and Isolation in a simple and secure way
+	- Docker allows us to create multiple custom Bridge Networks and split our network
+	- Containers are assigned the network at launch (docker run --network)
+
+
+LAB
+===
+	- Create two containers login and logout from the base image of Nginx
+		docker run -d --name login nginx:latest
+		docker run -d --name logout nginx:latest
+		docker inspect login
+		docker inspect logout
+
+		docker exec -it login /bin/bash
+		apt update && apt install iputils-ping 
+	- Try to ping one container from the other
+		ping <logout-ip>
+
+	The ping will work as both containers are in the same network
+
+
+		docker network ls 		-> List all available networks
+		docker network rm <name of NW>	-> Remove a network
+
+	- Create a network bridge 
+		docker network create <name: secure_nw>
+	- Create a new container and specify its NW to the one just created 
+		docker run -d --network secure_nw --name finance nginx:latest
+	- Try to bing this container from other containers
+		No connectivity
